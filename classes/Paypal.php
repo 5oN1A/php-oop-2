@@ -1,12 +1,13 @@
 <?php
 require_once __DIR__ . "/PaymentMethod.php";
 
-class payPal extends PaymentMethod {
-  protected $username;
-  protected $password;
+class Paypal extends PaymentMethod
+{
+    protected $username;
+    protected $password;
 
 
-  public function setUsername($username)
+    public function setUsername($username)
     {
         $this->username = $username;
     }
@@ -19,6 +20,3 @@ class payPal extends PaymentMethod {
         return [$this->type, $this->username, $this->password];
     }
 }
-
-
-?>

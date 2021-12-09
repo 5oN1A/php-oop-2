@@ -34,12 +34,20 @@ $paymentMethods = [
 
 
 
+try {
+    $customer1 = new Customer(250, 'Giacomo', 'Fizzi', 'giacomo.fizzimail.it');
+    $customer1->addToCart($products[0], $products[3]);
+    $customer1->addPaymentMethod($paymentMethods[1]);
+    var_dump($customer1);
+} catch (Exception $e) {
+    echo "Failed to generate the instance for the user due to the following error: ";
+    echo $e->getMessage() . "<br>";
+    echo $e->getFile() . "<br>";
+    echo $e->getLine() . "<br>";
+    echo $e->getTraceAsString() . "<br>";
+}
 
-$customer1 = new Customer(250, 'Giacomo', 'Fizzi', 'giacomo.fizzi@gmail.it');
-$customer1->addToCart($products[0], $products[3]);
-$customer1->addPaymentMethod($paymentMethods[1]);
-
-
-
-
-var_dump($customer1);
+$customer2 = new Customer(111, 'Serena', 'Colombo', 'serenacolombo@hotmail.it');
+$customer2->addToCart($products[1], $products[2]);
+$customer2->addPaymentMethod($paymentMethods[0]);
+var_dump($customer2);
